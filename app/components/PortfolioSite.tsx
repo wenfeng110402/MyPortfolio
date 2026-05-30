@@ -129,12 +129,19 @@ const translations = {
   },
 } as const;
 
+type Project = {
+  name: string;
+  description: string;
+  tags: readonly string[];
+  href: string;
+};
+
 function ProjectCard({
   project,
   index,
   lang,
 }: {
-  project: (typeof translations)["zh"]["projects"]["items"][number];
+  project: Project;
   index: number;
   lang: Lang;
 }) {
