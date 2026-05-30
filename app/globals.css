@@ -44,6 +44,10 @@ body {
   color: var(--foreground);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @keyframes rotateCards {
   0% {
     transform: translateX(0) scale(1) rotate(0deg);

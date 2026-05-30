@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Dancing_Script } from "next/font/google";
+import type { ReactNode } from "react";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import TopLeft from "./components/TopLeft";
 import Providers from "./providers";
 import { Toaster } from "react-hot-toast";
 
@@ -25,18 +24,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Adarsh Singh - Developer, Freelancer",
-  description: "Modern developer portfolio",
+  title: "Cret - Full Stack Developer",
+  description: "Cret 的个人作品集 / Cret's personal portfolio",
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <html
-      lang="en"
+      lang="zh-CN"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
       <head>
@@ -48,11 +47,8 @@ export default function RootLayout({
 
       <body className={`${inter.className} ${dancing.variable} bg-black text-white`}>
         <Providers>
-          <Navbar />
-          <TopLeft />
           {children}
 
-          {/* ✅ TOASTER HERE */}
           <Toaster position="top-right" />
         </Providers>
       </body>
