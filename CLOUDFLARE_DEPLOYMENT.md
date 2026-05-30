@@ -104,33 +104,12 @@ If your project requires environment variables in the future:
 
 ## Troubleshooting
 
-### nodejs_compat Error: "no nodejs_compat compatibility flag set"
-
-**Issue**: Deployment fails with error:
-```
-Node.JS Compatibility Error
-no nodejs_compat compatibility flag set
-```
-
-**Solution**: Enable the `nodejs_compat` compatibility flag in Cloudflare Pages:
-
-1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
-2. Navigate to **Workers & Pages** → Select your Pages project
-3. Go to **Settings** → **Functions** → **Compatibility Flags**
-4. Add `nodejs_compat` to both:
-   - Production environment
-   - Preview deployments
-5. Save changes and redeploy
-
-This project already has `nodejs_compat` configured in `wrangler.toml`, but Cloudflare Pages requires it to be enabled in the dashboard as well.
-
 ### Build Fails
 
 - Check the build logs in Cloudflare Dashboard
 - Ensure all dependencies are listed in `package.json`
 - Verify Node version compatibility (currently set to 20)
 - Make sure the build command completes successfully locally
-- Run `npm run build` locally to test: should complete with no errors
 
 ### Images Not Loading
 
@@ -149,7 +128,6 @@ This project already has `nodejs_compat` configured in `wrangler.toml`, but Clou
 **Issue**: Build succeeds but functions don't work
 - **Solution**: Ensure you're using the correct build command: `npx @cloudflare/next-on-pages@1`
 - **Solution**: Check that the output directory is `.vercel/output/static`
-- **Solution**: Verify `nodejs_compat` flag is enabled in Cloudflare dashboard
 
 **Issue**: Module not found errors
 - **Solution**: Some Node.js modules may not be compatible with Cloudflare Workers
