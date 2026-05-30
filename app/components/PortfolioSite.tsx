@@ -35,30 +35,30 @@ const translations = {
         {
           name: "AppleMusic-Downloader",
           description:
-            "开源音乐下载工具，累计服务数万用户，曾获 GitHub Education Newsletter 收录。",
-          tags: ["Python", "CLI", "开源"],
+            "一个功能完整的图形化 Apple Music 下载工具，已获得 252+ 星标，被 GitHub Education Newsletter 推荐，帮助数万用户下载高保真音乐。",
+          tags: ["Python", "GUI", "开源"],
           href: "https://github.com/wenfeng110402/AppleMusic-Downloader",
         },
         {
           name: "HackPod",
           description:
-            "从零到一设计的独立 MP3 播放器，独立完成 PCB、固件与 3D 外壳，获 Hack Club Grant。",
-          tags: ["硬件", "PCB", "嵌入式", "3D建模"],
+            "设计一个轻量化的 ESP32 MP3 播放器，仿 iPod shuffle 交互。从 PCB 设计、固件开发到外壳设计全程自主完成，展示完整的硬件开发流程。",
+          tags: ["C++", "嵌入式", "硬件"],
           href: "https://github.com/wenfeng110402/HackPod",
         },
         {
-          name: "YOLOv8 智能识别系统",
+          name: "Hack-Club-App",
           description:
-            "基于 YOLOv8 的实时物体识别与计数系统，针对边缘设备优化；获佛山市南海区科创大赛一等奖（街道第一名）、市赛二等奖。",
-          tags: ["Python", "计算机视觉", "边缘计算"],
-          href: "https://github.com/wenfeng110402",
+            "用 SwiftUI 打造的 Hack Club 社区应用，为全球青少年开发者提供一个高效的活动管理和协作平台，支持实时通知和社区互动。",
+          tags: ["SwiftUI", "iOS", "社区"],
+          href: "https://github.com/wenfeng110402/Hack-Club-App",
         },
         {
-          name: "Hack Club 生态工具",
+          name: "Mindox",
           description:
-            "为 Hack Club 社区开发的 iOS App 与 CLI 双因素认证工具 Authenticator；在 Flavortown 活动中担任 Chef 主导多个项目迭代。",
-          tags: ["SwiftUI", "iOS", "CLI", "安全"],
-          href: "https://github.com/wenfeng110402",
+            "一个简洁高效的思维导图工具，支持实时协作和导出。用于个人学习规划和团队知识管理，体现前端工程化最佳实践。",
+          tags: ["HTML/CSS", "交互设计", "工具"],
+          href: "https://github.com/wenfeng110402/Mindox",
         },
       ],
     },
@@ -95,30 +95,30 @@ const translations = {
         {
           name: "AppleMusic-Downloader",
           description:
-            "Open-source music downloader serving tens of thousands of users. Featured on GitHub Education Newsletter.",
-          tags: ["Python", "CLI", "Open Source"],
+            "A full-featured GUI for downloading high-fidelity music from Apple Music. 252+ stars on GitHub, featured in GitHub Education Newsletter. Serves thousands of users daily.",
+          tags: ["Python", "GUI", "Open Source"],
           href: "https://github.com/wenfeng110402/AppleMusic-Downloader",
         },
         {
           name: "HackPod",
           description:
-            "Independent MP3 player built from scratch. Designed PCB, firmware, and 3D enclosure. Received Hack Club Grant.",
-          tags: ["Hardware", "PCB", "Embedded", "3D Modeling"],
+            "A lightweight ESP32-based portable MP3 player inspired by iPod shuffle. Self-designed PCB, firmware, and enclosure from scratch—complete hardware development journey.",
+          tags: ["C++", "Embedded", "Hardware"],
           href: "https://github.com/wenfeng110402/HackPod",
         },
         {
-          name: "YOLOv8 Smart Recognition",
+          name: "Hack-Club-App",
           description:
-            "Real-time object detection and counting system optimized for edge devices. Won 1st Prize in District Science Fair and 2nd Prize at city level.",
-          tags: ["Python", "Computer Vision", "Edge Computing"],
-          href: "https://github.com/wenfeng110402",
+            "Built with SwiftUI, a community app for Hack Club connecting global teen developers. Real-time notifications, event management, and collaborative features at scale.",
+          tags: ["SwiftUI", "iOS", "Community"],
+          href: "https://github.com/wenfeng110402/Hack-Club-App",
         },
         {
-          name: "Hack Club Ecosystem",
+          name: "Mindox",
           description:
-            "iOS app and CLI 2FA tool Authenticator for the Hack Club community. Served as Chef during Flavortown to drive multiple project iterations.",
-          tags: ["SwiftUI", "iOS", "CLI", "Security"],
-          href: "https://github.com/wenfeng110402",
+            "A clean and intuitive mind-mapping tool with real-time collaboration and export. Demonstrates front-end best practices for learning management and team knowledge sharing.",
+          tags: ["HTML/CSS", "Design", "Tools"],
+          href: "https://github.com/wenfeng110402/Mindox",
         },
       ],
     },
