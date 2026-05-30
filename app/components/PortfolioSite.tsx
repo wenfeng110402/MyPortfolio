@@ -230,11 +230,7 @@ export default function PortfolioSite() {
         <span>Full Stack / Open Source</span>
       </div>
 
-      <Navbar
-        lang={lang}
-        labels={content.nav}
-        onToggleLang={toggleLang}
-      />
+      <Navbar />
 
       <section
         id="top"
