@@ -1,26 +1,54 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaSpotify } from "react-icons/fa";
+import { ActivityCalendar } from "react-activity-calendar";
+import { useEffect, useState } from "react";
+import { useLanguage } from "../hooks/useLanguage";
 
+interface ContributionDay {
+  date: string;
+  count: number;
+  level: 0 | 1 | 2 | 3 | 4;
+}
 
 export default function BehindSection() {
   const router = useRouter();
+  const { t } = useLanguage();
+  const [contributions, setContributions] = useState<ContributionDay[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch GitHub contributions using GitHub API
+    fetch("https://github-contributions-api.jogruber.de/v4/wenfeng110402?y=last")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.contributions) {
+          setContributions(data.contributions);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch contributions:", err);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <section className="bg-black text-white py-32 px-6 md:px-16">
 
       {/* HEADING */}
       <div className="text-center mb-20">
         <p className="text-xs tracking-[0.3em] text-white/50 mb-4">
-          BEHIND THE CURTAINS
+          {t("behind.label")}
         </p>
 
         <h2 className="text-[42px] md:text-[64px] font-semibold leading-tight">
-          Decoding logic <br />
+          {t("behind.title")} <br />
           <span className="font-serif italic bg-gradient-to-r from-gray-600 via-gray-400 to-gray-700 text-transparent bg-clip-text">
-            && the lyrics
+            {t("behind.subtitle")}
           </span>
         </h2>
       </div>
@@ -33,45 +61,49 @@ export default function BehindSection() {
 
           <div>
             <h3 className="text-lg font-semibold mb-6">
-              Adarsh’s Github
+              {t("behind.githubTitle")}
             </h3>
 
+            {/* GitHub Contribution Heatmap */}
+            <div className="mb-4">
+              {loading ? (
+                <div className="h-32 flex items-center justify-center text-white/40 text-sm">
+                  {t("behind.loading")}
+                </div>
+              ) : (
+                <ActivityCalendar
+                  data={contributions}
+                  theme={{
+                    light: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+                    dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+                  }}
+                  colorScheme="dark"
+                  blockSize={10}
+                  blockMargin={3}
+                  fontSize={10}
+                  showWeekdayLabels={false}
+                  labels={{
+                    totalCount: "{{count}} contributions in the last year",
+                  }}
+                />
+              )}
+            </div>
+
             <p className="text-xs text-white/50 mb-2">
-              LATEST PUSH • 1h ago
-            </p>
-
-            <p className="text-white/80 text-sm">
-              "Refactor code structure for improved readability and maintainability"
-            </p>
-
-            <p className="text-xs text-red-400 mt-2">
-              Repo: Private work
+              {t("behind.totalContributions")} {contributions.reduce((sum, day) => sum + day.count, 0)}
             </p>
           </div>
 
           {/* SOCIAL ICONS */}
           <div className="flex gap-4 mt-6 text-white/60 text-lg">
-            <a 
-    href="https://github.com/adarshsinghh13" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="hover:text-white transition"
-  >
-<FaGithub /></a>
-            <a 
-    href="https://linkedin.com/in/adarshsinghh13" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="hover:text-white transition"
-  >
-<FaLinkedin /></a>
-            <a 
-    href="https://twitter.com/adarshsinghh13" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="hover:text-white transition"
-  >
-<FaTwitter /></a>
+            <a
+              href="https://github.com/wenfeng110402"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition"
+            >
+              <FaGithub />
+            </a>
           </div>
         </div>
 
@@ -83,18 +115,18 @@ export default function BehindSection() {
 
           <div>
             <p className="text-xs text-white/50 tracking-widest mb-4">
-              VISITORS
+              {t("behind.visitorsLabel")}
             </p>
 
             <h3 className="text-3xl font-semibold leading-tight">
-              Leave your{" "}
+              {t("behind.leaveSignature")}{" "}
               <span className="font-serif italic bg-gradient-to-r from-gray-600 via-gray-400 to-gray-700 text-transparent bg-clip-text">
-                signature
+                {t("behind.signature")}
               </span>
             </h3>
 
             <p className="text-white/60 mt-4 text-sm">
-              Let me know you were here.
+              {t("behind.letMeKnow")}
             </p>
           </div>
 
@@ -114,7 +146,7 @@ export default function BehindSection() {
   onClick={() => router.push("/guestbook")}
   className="px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 transition shadow-[0_0_20px_rgba(255,140,0,0.3)]"
 >
-  Sign Guestbook →
+  {t("behind.signGuestbook")}
 </button>
 
           </div>
@@ -155,11 +187,11 @@ export default function BehindSection() {
     30.1 10.1 6 13.4 19.1 7.4 29.2-6 10.1-19.1 
     13.4-29.3 6.8z"/>
   </svg>
-  <span>Last Played</span>
+  <span>{t("behind.lastPlayed")}</span>
 </div>
 
             <h3 className="text-lg font-semibold">
-              About You - From "The 1975"
+              About You - From &quot;The 1975&quot;
             </h3>
 
             <p className="text-xs text-white/50 mt-2">
@@ -167,7 +199,7 @@ export default function BehindSection() {
             </p>
 
             <p className="text-s text-green-400 mt-3">
-              ▶ Play on Spotify
+              {t("behind.playSpotify")}
             </p>
 
           </div>

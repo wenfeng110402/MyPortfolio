@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-const images = ["/img1.jpg", "/img2.jpg", "/img3.jpg"];
+const images = ["/img1.JPG", "/img2.jpeg", "/img3.jpeg"];
 
 export default function HeroSection() {
   const [index, setIndex] = useState(0);
@@ -50,13 +50,11 @@ export default function HeroSection() {
         </h1>
 
         <p className="mt-8 text-white/70 leading-relaxed max-w-lg">
-          I'm Adarsh Singh, an engineering-driven developer who turns complex
-          technical challenges into high-speed web products. I manage the entire
-          stack with a focus on clean, reusable code and seamless performance.
-          I excel in Next.js and full-stack architecture, always delivering
-          modern solutions that actually solve problems for every user.
-          <br /><br />
-          My code is built to last, helping your startup reach the next level!
+          I'm Cret, a 15-year-old full-stack developer and open-source creator.
+          I build products from scratch — from tools that help thousands of
+          users, to hardware projects you can hold in your hand. I focus on
+          clean architecture, fast performance, and experiences that feel
+          effortless to use.
         </p>
 
         <p className="mt-4 text-white/70 max-w-lg">
@@ -67,27 +65,12 @@ export default function HeroSection() {
         <div className="flex items-center gap-5 mt-8 text-white/60">
 
           <a
-            href="https://www.linkedin.com/in/adarshsinghh13"
+            href="https://github.com/wenfeng110402"
             target="_blank"
-            className="hover:text-white transition text-lg"
-          >
-            <FaLinkedin />
-          </a>
-
-          <a
-            href="https://github.com/adarshsinghh13"
-            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-white transition text-lg"
           >
             <FaGithub />
-          </a>
-
-          <a
-            href="https://x.com/adarshsinghh13"
-            target="_blank"
-            className="hover:text-white transition text-lg"
-          >
-            <FaTwitter />
           </a>
 
         </div>

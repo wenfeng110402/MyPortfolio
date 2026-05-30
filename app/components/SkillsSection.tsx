@@ -9,6 +9,22 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import dynamic from "next/dynamic";
+import {
+  SiPython,
+  SiCplusplus,
+  SiArduino,
+  SiFfmpeg,
+  SiGithubactions,
+  SiGit,
+  SiLinux,
+  SiBlender,
+  SiPypi,
+  SiSwift,
+} from "react-icons/si";
+import { FaMicrochip, FaTerminal, FaLock, FaBox } from "react-icons/fa";
+import { TbUserScreen } from "react-icons/tb";
+import { IoMusicalNotes } from "react-icons/io5";
+import { useLanguage } from "../hooks/useLanguage";
 
 // Dynamically import Scene to avoid SSR issues with WebGL
 const Scene = dynamic(() => import("./Scene"), {
@@ -25,18 +41,23 @@ const Scene = dynamic(() => import("./Scene"), {
 
 // ─── Skills Data ────────────────────────────────────────────────────────────
 const SKILLS = [
-  { label: "React.js",       icon: "⚛" },
-  { label: "Next.js",        icon: "▲" },
-  { label: "TypeScript",     icon: "TS" },
-  { label: "Tailwind CSS",   icon: "◈" },
-  { label: "Node.js",        icon: "⬡" },
-  { label: "MongoDB",        icon: "🍃" },
-  { label: "PostgreSQL",     icon: "⬡" },
-  { label: "GraphQL",        icon: "◇" },
-  { label: "Framer Motion",  icon: "✦" },
-  { label: "Three.js",       icon: "△" },
-  { label: "Docker",         icon: "⬢" },
-  { label: "AWS",            icon: "☁" },
+  { label: "Python",         icon: <SiPython className="text-yellow-400 text-lg" /> },
+  { label: "Swift",          icon: <SiSwift className="text-orange-500 text-lg" /> },
+  { label: "C++",            icon: <SiCplusplus className="text-blue-500 text-lg" /> },
+  { label: "ESP32",          icon: <FaMicrochip className="text-green-500 text-lg" /> },
+  { label: "Arduino",        icon: <SiArduino className="text-teal-400 text-lg" /> },
+  { label: "PyQt/PySide",    icon: <TbUserScreen className="text-blue-400 text-lg" /> },
+  { label: "CLI Tools",      icon: <FaTerminal className="text-gray-400 text-lg" /> },
+  { label: "Textual TUI",    icon: <TbUserScreen className="text-cyan-400 text-lg" /> },
+  { label: "FFmpeg",         icon: <SiFfmpeg className="text-green-400 text-lg" /> },
+  { label: "I2S Audio",      icon: <IoMusicalNotes className="text-purple-400 text-lg" /> },
+  { label: "PCB Design",     icon: <FaMicrochip className="text-yellow-500 text-lg" /> },
+  { label: "GitHub Actions", icon: <SiGithubactions className="text-purple-500 text-lg" /> },
+  { label: "PyInstaller",    icon: <FaBox className="text-orange-400 text-lg" /> },
+  { label: "TOTP/Auth",      icon: <FaLock className="text-red-400 text-lg" /> },
+  { label: "3D Modeling",    icon: <SiBlender className="text-pink-400 text-lg" /> },
+  { label: "Git",            icon: <SiGit className="text-orange-500 text-lg" /> },
+  { label: "Linux",          icon: <SiLinux className="text-yellow-500 text-lg" /> },
 ];
 
 // ─── Skill Badge ─────────────────────────────────────────────────────────────
@@ -46,7 +67,7 @@ const SkillBadge = memo(function SkillBadge({
   index,
 }: {
   label: string;
-  icon: string;
+  icon: React.ReactNode;
   index: number;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -99,11 +120,12 @@ const SkillBadge = memo(function SkillBadge({
 
 // ─── Main Component ──────────────────────────────────────────────────────────
 export default function SkillsSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   // Track scroll through the tall container
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: sectionRef,
     offset: ["start start", "end end"],
   });
 
@@ -154,7 +176,7 @@ export default function SkillsSection() {
 
       {/* ── Tall scroll container (drives all animations) ── */}
       <section
-        ref={containerRef}
+        ref={sectionRef}
         style={{ height: "280vh", position: "relative", background: "#050507" }}
       >
         {/* ── Sticky viewport ── */}
@@ -225,7 +247,7 @@ export default function SkillsSection() {
                   color: "rgba(255,255,255,0.22)",
                 }}
               >
-                My Skillset
+                {t("skills.label")}
               </p>
               <h2
                 style={{

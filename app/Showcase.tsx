@@ -3,78 +3,87 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import RotatingBadge from "./components/RotatingBadge";
-import { FaReact } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiFramer, SiZod } from "react-icons/si";
-import { SiChakraui } from "react-icons/si";
-import { AiOutlineBarChart } from "react-icons/ai";
-import { TbBrandRadixUi } from "react-icons/tb";
-import { RiReactjsLine } from "react-icons/ri";
 import { Playfair_Display } from "next/font/google";
-
-import { SiTypescript, SiSupabase } from "react-icons/si";
+import {
+  SiPython,
+  SiFfmpeg,
+  SiGithubactions,
+  SiCplusplus,
+  SiArduino,
+  SiBlender,
+  SiPypi,
+} from "react-icons/si";
+import { FaMicrochip, FaTerminal, FaLock, FaBox } from "react-icons/fa";
+import { TbUserScreen } from "react-icons/tb";
+import { IoMusicalNotes } from "react-icons/io5";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   style: ["italic"],
 });
 
 // ─── DATA ─────────────────────────────────────────────
-const projects = [
+interface TechItem {
+  name: string;
+  icon: React.ReactNode;
+}
+
+interface Project {
+  id: number;
+  title: string;
+  link: string;
+  desc: string;
+  gradient: string;
+  image: string;
+  tech?: TechItem[];
+}
+
+const projects: Project[] = [
   {
     id: 1,
-    title: " CodeStruct",
-    link: "https://codestruct.vercel.app/",
-    desc: "CodeStruct is a full-stack web application designed to help users learn Data Structures and Algorithms through interactive visualizations. It allows users to write and test code in a real-time playground environment. The platform offers curated practice problems with automated evaluation and detailed solutions. It also includes user authentication and progress tracking features. Overall, CodeStruct provides an engaging and effective platform for mastering DSA concepts.",
-    gradient: "from-red-500 to-red-700",
-    images: [
-      "/projects/codestruct2.png",
-      "/projects/Codestruct1.jpg",
-      "/projects/codestruct3.png",
-    ],
+    title: "AppleMusic Downloader",
+    link: "https://github.com/wenfeng110402/AppleMusic-Downloader",
+    desc: "A graphical Apple Music downloader built with Python. Features high-quality audio download (AAC 256kbps), HD music video support (up to 1080p), batch download for artist works, and highly customizable configuration options. Includes Windows installer and cross-platform CLI support.",
+    gradient: "from-pink-500 to-red-600",
+    image: "/projects/applemusic1.png",
     tech: [
-      { name: "React", icon: <FaReact className="text-blue-400" /> },
-      { name: "TypeScript", icon: <SiTypescript className="text-blue-500" /> },
-      { name: "Next.js", icon: <SiNextdotjs /> },
-      { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" /> },
-      { name: "Framer Motion", icon: <SiFramer className="text-pink-400" /> },
-      { name: "Supabase", icon: <SiSupabase className="text-green-400" /> },
+      { name: "Python", icon: <SiPython className="text-yellow-400" /> },
+      { name: "PyQt/PySide", icon: <TbUserScreen className="text-blue-400" /> },
+      { name: "FFmpeg", icon: <SiFfmpeg className="text-green-400" /> },
+      { name: "yt-dlp", icon: <FaTerminal className="text-red-400" /> },
+      { name: "GitHub Actions", icon: <SiGithubactions className="text-purple-400" /> },
+      { name: "PyInstaller", icon: <FaBox className="text-orange-400" /> },
     ]
   },
   {
     id: 2,
-    title: " SnapURL",
-    link: "https://snapurl-short.vercel.app/",
-    desc: "SnapURL is a modern web application that shortens long URLs into compact, shareable links. It includes an analytics dashboard to track clicks and link performance. The platform is fully responsive and supports both light and dark modes for better user experience. It is built using Next.js, React, and Tailwind CSS with smooth animations. Overall, SnapURL provides a fast, efficient, and visually appealing URL shortening solution.",
-    gradient: "from-blue-500 to-blue-700",
-    images: [
-      "/projects/Snapurl1.png",
-      "/projects/Snapurl2.png",
-      "/projects/Snapurl3.png",
-    ],
+    title: "HackPod",
+    link: "https://github.com/wenfeng110402/HackPod",
+    desc: "A portable MP3 player inspired by iPod shuffle, built using ESP32 microcontroller. Plays MP3 songs from micro SD card with physical buttons for control (Play/Pause, Next, Previous, Volume). Features I2S audio output, LED status indicator, and battery monitoring via ADC. Includes custom PCB design and 3D printed shell.",
+    gradient: "from-orange-500 to-yellow-500",
+    image: "/projects/hackpod1.png",
     tech: [
-      { name: "Next.js", icon: <SiNextdotjs /> },
-      { name: "React", icon: <FaReact className="text-blue-400" /> },
-      { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" /> },
-      { name: "Framer", icon: <SiFramer className="text-pink-400" /> },
-      { name: "Radix", icon: <TbBrandRadixUi /> },
-      { name: "Recharts", icon: <AiOutlineBarChart /> },
-      { name: "Hook Form", icon: <RiReactjsLine /> },
-      { name: "Zod", icon: <SiZod /> },
+      { name: "C++", icon: <SiCplusplus className="text-blue-500" /> },
+      { name: "ESP32", icon: <FaMicrochip className="text-green-500" /> },
+      { name: "Arduino", icon: <SiArduino className="text-teal-400" /> },
+      { name: "I2S Audio", icon: <IoMusicalNotes className="text-purple-400" /> },
+      { name: "PCB Design", icon: <FaMicrochip className="text-yellow-400" /> },
+      { name: "3D Modeling", icon: <SiBlender className="text-pink-400" /> },
     ]
   },
   {
     id: 3,
-    title: " CVForge",
-    link: "https://cvforge-web.netlify.app/",
-    desc: "CVForge is a web-based resume builder that allows users to create professional resumes quickly and easily. It provides a live editor where users can customize their resume in real time based on their requirements. The platform is built using ReactJS and Chakra UI for a clean and responsive interface. It also supports features like printing and exporting resumes using React-To-Print.",
-    gradient: "from-yellow-500 to-orange-500",
-    images: [
-      "/projects/cvforge1.png",
-      "/projects/cvforge2.png",
-      "/projects/cvforge3.png",
-    ],
+    title: "Authenticator",
+    link: "https://github.com/wenfeng110402/Authenticator",
+    desc: "A polished CLI tool for managing and viewing TOTP (Time-based One-Time Password) codes. Features a modern Textual-based dashboard UI, secret management (add/rename/delete/list), live continuously updating TOTP codes display, and multiple export formats (JSON, plain text). Installable via pip as 'hackauth'.",
+    gradient: "from-blue-500 to-purple-600",
+    image: "/projects/authenticator1.png",
     tech: [
-      { name: "React", icon: <FaReact className="text-blue-400" /> },
-      { name: "Chakra UI", icon: <SiChakraui className="text-teal-400" /> },
+      { name: "Python", icon: <SiPython className="text-yellow-400" /> },
+      { name: "Textual TUI", icon: <TbUserScreen className="text-cyan-400" /> },
+      { name: "TOTP", icon: <FaLock className="text-red-400" /> },
+      { name: "CLI", icon: <FaTerminal className="text-green-400" /> },
+      { name: "pip package", icon: <SiPypi className="text-blue-400" /> },
+      { name: "Conda", icon: <FaBox className="text-orange-400" /> },
     ]
   },
 ];
@@ -107,7 +116,7 @@ function LeftPanel({ activeIndex }: { activeIndex: number }) {
 
           {/* TECH STACK */}
           <div className="flex flex-wrap gap-3">
-            {project.tech?.map((t: any, i: number) => (
+            {project.tech?.map((t, i) => (
               <div
                 key={i}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full 
@@ -132,7 +141,7 @@ function ProjectCard({
   project,
   onVisible,
 }: {
-  project: any;
+  project: Project;
   onVisible: (id: number) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -166,31 +175,17 @@ function ProjectCard({
       style={{ scale, y }}
       className="h-[70vh] flex items-center justify-center"
     >
-      <div className="flex gap-6 items-center">
+      <div className="relative w-full max-w-3xl">
+        {/* Main Image */}
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+        />
 
-        {/* SMALL CARDS */}
-        <div className="flex flex-col gap-6">
-          {project.images?.slice(0, 2).map((img: string, i: number) => (
-            <img
-              key={i}
-              src={img}
-              alt="project"
-              className="w-[240px] h-[140px] object-cover rounded-2xl"
-            />
-          ))}
-        </div>
-
-        {/* BIG CARD */}
-        <div className="relative w-[400px] h-[200px]">
-          <img
-            src={project.images?.[2]}
-            alt="project main"
-            className="w-full h-full object-cover rounded-2xl"
-          />
-
-          <div className="absolute -top-10 -right-10">
-            <RotatingBadge link={project.link} />
-          </div>
+        {/* Rotating Badge */}
+        <div className="absolute -top-8 -right-8">
+          <RotatingBadge link={project.link} />
         </div>
       </div>
     </motion.div>

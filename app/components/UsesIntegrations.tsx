@@ -6,9 +6,6 @@ const integrations = [
   { name: "Gemini", desc: "Multimodal AI", icon: "/logos/gemini.png" },
   { name: "Hugging Face", desc: "AI Models", icon: "/logos/huggingface.png" },
   { name: "Spotify", desc: "Audio Streaming", icon: "/logos/spotify.png" },
-  { name: "X", desc: "Tech Twitter", icon: "/logos/x.svg" },
-  { name: "LinkedIn", desc: "Professional Network", icon: "/logos/linkedin.svg" },
- 
 ];
 
 export default function UsesIntegrations() {
