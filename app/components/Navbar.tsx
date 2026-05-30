@@ -6,6 +6,7 @@ type NavLabels = {
   home: string;
   about: string;
   projects: string;
+  stack: string;
   github: string;
 };
 
@@ -38,6 +39,12 @@ export default function Navbar({
           className="rounded-full px-3 py-1 text-xs text-gray-300 transition hover:bg-white/10 hover:text-white"
         >
           {labels.projects}
+        </a>
+        <a
+          href="#stack"
+          className="rounded-full px-3 py-1 text-xs text-gray-300 transition hover:bg-white/10 hover:text-white"
+        >
+          {labels.stack}
         </a>
         <a
           href="https://github.com/wenfeng110402"

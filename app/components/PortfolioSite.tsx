@@ -12,6 +12,7 @@ const translations = {
       home: "首页",
       about: "关于",
       projects: "项目",
+      stack: "技术栈",
       github: "GitHub",
     },
     hero: {
@@ -54,11 +55,11 @@ const translations = {
           href: "https://github.com/wenfeng110402/Hack-Club-App",
         },
         {
-          name: "Mindox",
+          name: "Authenticator",
           description:
-            "一个简洁高效的思维导图工具，支持实时协作和导出。用于个人学习规划和团队知识管理，体现前端工程化最佳实践。",
-          tags: ["HTML/CSS", "交互设计", "工具"],
-          href: "https://github.com/wenfeng110402/Mindox",
+            "为 Hack Club 社区开发的双因素认证工具，支持 iOS App 和 CLI 版本。实现密钥管理、TOTP 生成和安全验证，在 Flavortown 活动中担任 Chef 主导产品迭代。",
+          tags: ["SwiftUI", "Python", "安全"],
+          href: "https://github.com/wenfeng110402/Authenticator",
         },
       ],
     },
@@ -66,12 +67,23 @@ const translations = {
       title: "Cret · 全栈开发者 / 开源创作者",
       note: "Hack Club 成员 · 2027 Apple Swift Student Challenge 冲刺中",
     },
+    stack: {
+      title: "技术栈",
+      label: "精通的技术",
+      categories: [
+        { name: "语言", skills: ["Python", "Swift", "TypeScript", "C++", "JavaScript"] },
+        { name: "前端", skills: ["React", "Next.js", "SwiftUI", "Tailwind CSS"] },
+        { name: "后端", skills: ["Node.js", "CLI 工具", "REST API"] },
+        { name: "其他", skills: ["Git", "硬件编程", "Linux", "Docker"] },
+      ],
+    },
   },
   en: {
     nav: {
       home: "Home",
       about: "About",
       projects: "Projects",
+      stack: "Stack",
       github: "GitHub",
     },
     hero: {
@@ -114,17 +126,27 @@ const translations = {
           href: "https://github.com/wenfeng110402/Hack-Club-App",
         },
         {
-          name: "Mindox",
+          name: "Authenticator",
           description:
-            "A clean and intuitive mind-mapping tool with real-time collaboration and export. Demonstrates front-end best practices for learning management and team knowledge sharing.",
-          tags: ["HTML/CSS", "Design", "Tools"],
-          href: "https://github.com/wenfeng110402/Mindox",
+            "2FA tool for the Hack Club community with iOS app and CLI. Secure key management, TOTP generation, and multi-platform support. Led product iterations as Chef during Flavortown.",
+          tags: ["SwiftUI", "Python", "Security"],
+          href: "https://github.com/wenfeng110402/Authenticator",
         },
       ],
     },
     footer: {
       title: "Cret · Full Stack Developer / Open Source Creator",
       note: "Hack Club member · chasing the 2027 Apple Swift Student Challenge",
+    },
+    stack: {
+      title: "Tech Stack",
+      label: "Skills & expertise",
+      categories: [
+        { name: "Languages", skills: ["Python", "Swift", "TypeScript", "C++", "JavaScript"] },
+        { name: "Frontend", skills: ["React", "Next.js", "SwiftUI", "Tailwind CSS"] },
+        { name: "Backend", skills: ["Node.js", "CLI Tools", "REST API"] },
+        { name: "Other", skills: ["Git", "Hardware Programming", "Linux", "Docker"] },
+      ],
     },
   },
 } as const;
@@ -309,6 +331,67 @@ export default function PortfolioSite() {
             />
           ))}
         </div>
+      </section>
+
+      <section id="stack" className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mb-10 flex flex-col gap-3">
+          <p className="text-xs uppercase tracking-[0.35em] text-gray-500">
+            {content.stack.label}
+          </p>
+          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
+            {content.stack.title}
+          </h2>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {content.stack.categories.map((category) => (
+            <motion.div
+              key={category.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl"
+            >
+              <h3 className="text-lg font-semibold text-white">
+                {category.name}
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-sm text-gray-300 hover:border-white/20 hover:bg-white/10 transition"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-[0.35em] text-gray-500">
+            {lang === "zh" ? "GitHub 贡献" : "GitHub Activity"}
+          </p>
+          <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
+            {lang === "zh" ? "热力图" : "Contribution"}
+          </h2>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl"
+        >
+          <img
+            src="https://ghchart.rstatello.com/wenfeng110402"
+            alt="GitHub Contribution Chart"
+            className="w-full"
+          />
+        </motion.div>
       </section>
 
       <footer className="mx-auto max-w-6xl px-6 py-16">
