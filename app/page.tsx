@@ -351,7 +351,7 @@ export default function Home() {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-400">Users</span>
-                      <span className="text-white font-medium">10k+</span>
+                      <span className="text-white font-medium">20k+</span>
                     </div>
                   </div>
                 </div>
