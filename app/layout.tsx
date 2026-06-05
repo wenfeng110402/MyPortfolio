@@ -25,7 +25,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Cret - Full Stack Developer",
-  description: "Cret 的个人作品集 / Cret's personal portfolio",
+  description: "Cret 的个人介绍 / Cret's personal portfolio",
 };
 
 export default function RootLayout({
