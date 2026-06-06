@@ -7,6 +7,7 @@ type Entry = {
   name: string;
   message: string;
   createdAt: Date;
+  avatarUrl?: string;
 };
 
 const initialEntries: Entry[] = [
@@ -31,6 +32,7 @@ export default function GuestbookPage() {
         name: name.trim() || "Anonymous",
         message: message.trim(),
         createdAt: new Date(),
+        avatarUrl: undefined,
       },
       ...current,
     ]);
@@ -56,7 +58,7 @@ export default function GuestbookPage() {
         </div>
 
         <div className="bg-[#0b0b0b] border border-white/10 rounded-[28px] px-8 py-8 w-full max-w-md ml-auto">
-          <h3 className="text-[26px] leading-[32px] font-semibold mb-4">
+          <h3 className="text-[26px] leading-8 font-semibold mb-4">
             Leave your{" "}
             <span className="font-serif italic text-white/70">Signature!</span>
           </h3>
@@ -86,7 +88,7 @@ export default function GuestbookPage() {
 
             <button
               type="submit"
-              className="w-full py-3 rounded-full bg-gradient-to-r from-gray-600 via-gray-400 to-gray-700 text-white text-sm hover:scale-[1.02] transition"
+              className="w-full py-3 rounded-full bg-linear-to-r from-gray-600 via-gray-400 to-gray-700 text-white text-sm hover:scale-[1.02] transition"
             >
               Sign Guestbook →
             </button>
@@ -110,11 +112,14 @@ export default function GuestbookPage() {
               </div>
 
               <div className="flex items-center gap-3 mb-3">
-                <img
-                  src="https://cret.uk"
-                  alt={entry.name}
-                  className="w-8 h-8 rounded-full object-cover"
-                />
+                {entry.avatarUrl ? (
+                  <img
+                    src={entry.avatarUrl}
+                    alt={entry.name}
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+                ) : null}
+
                 <div>
                   <p className="text-sm font-semibold">{entry.name}</p>
                   <p className="text-[11px] text-white/40">

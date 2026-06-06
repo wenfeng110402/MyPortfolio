@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Monitor, Book, Globe } from "lucide-react";
+import { div } from "three/src/nodes/math/OperatorNode.js";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -55,6 +56,7 @@ export default function Navbar() {
   const navItems = [
     { name: lang === "zh" ? "首页" : "Home", path: "/" },
     { name: lang === "zh" ? "关于" : "About", path: "/about" },
+    { name: lang === "zh"? "博客" : "Blog", path: "/blog"},
     { name: lang === "zh" ? "项目" : "Projects", path: "/projects" },
   ];
 

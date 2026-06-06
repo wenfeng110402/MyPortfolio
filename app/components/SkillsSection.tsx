@@ -18,8 +18,12 @@ import {
   SiGit,
   SiLinux,
   SiBlender,
-  SiPypi,
+  SiTypescript,
   SiSwift,
+  SiMarkdown,
+  SiRaspberrypi,
+  SiReact,
+  SiJson,
 } from "react-icons/si";
 import { FaMicrochip, FaTerminal, FaLock, FaBox } from "react-icons/fa";
 import { TbUserScreen } from "react-icons/tb";
@@ -43,6 +47,11 @@ const Scene = dynamic(() => import("./Scene"), {
 const SKILLS = [
   { label: "Python",         icon: <SiPython className="text-yellow-400 text-lg" /> },
   { label: "Swift",          icon: <SiSwift className="text-orange-500 text-lg" /> },
+  { label: "TypeScript",     icon: <SiTypescript className="text-blue-500 text-lg" /> },
+  { label: "JSON",           icon: <SiJson className="text-yellow-300 text-lg" /> },
+  { label: "Markdown",       icon: <SiMarkdown className="text-gray-300 text-lg" /> },
+  { label: "Raspberry Pi",   icon: <SiRaspberrypi className="text-red-400 text-lg" /> },
+  { label: "React",          icon: <SiReact className="text-cyan-400 text-lg" /> },
   { label: "C++",            icon: <SiCplusplus className="text-blue-500 text-lg" /> },
   { label: "ESP32",          icon: <FaMicrochip className="text-green-500 text-lg" /> },
   { label: "Arduino",        icon: <SiArduino className="text-teal-400 text-lg" /> },
@@ -54,8 +63,8 @@ const SKILLS = [
   { label: "PCB Design",     icon: <FaMicrochip className="text-yellow-500 text-lg" /> },
   { label: "GitHub Actions", icon: <SiGithubactions className="text-purple-500 text-lg" /> },
   { label: "PyInstaller",    icon: <FaBox className="text-orange-400 text-lg" /> },
-  { label: "TOTP/Auth",      icon: <FaLock className="text-red-400 text-lg" /> },
-  { label: "3D Modeling",    icon: <SiBlender className="text-pink-400 text-lg" /> },
+  { label: "Security",      icon: <FaLock className="text-red-400 text-lg" /> },
+  { label: "CAD",    icon: <SiBlender className="text-pink-400 text-lg" /> },
   { label: "Git",            icon: <SiGit className="text-orange-500 text-lg" /> },
   { label: "Linux",          icon: <SiLinux className="text-yellow-500 text-lg" /> },
 ];
