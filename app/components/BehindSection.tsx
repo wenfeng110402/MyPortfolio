@@ -135,7 +135,7 @@ export default function BehindSection() {
             {/* avatars */}
             <div className="flex -space-x-3">
               <img src="/guestbook1.jpg" className="w-8 h-8 rounded-full border border-black" />
-              <img src="/guestbook2.jpg" className="w-8 h-8 rounded-full border border-black" />
+              <img src="/guestbook2.png" className="w-8 h-8 rounded-full border border-black" />
               <img src="/guestbook3.jpg" className="w-8 h-8 rounded-full border border-black" />
             </div>
 

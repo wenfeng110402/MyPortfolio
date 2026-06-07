@@ -2,32 +2,32 @@ const software = [
   {
     name: "Visual Studio Code",
     desc: "My primary code editor with extensions for speed and productivity.",
-    img: "/img1.jpg",
+    img: "/img1.png",
   },
   {
     name: "Figma",
     desc: "Designing clean UI/UX and prototyping ideas.",
-    img: "/img2.jpg",
+    img: "/img2.png",
   },
   {
     name: "GitHub",
     desc: "Version control and project collaboration.",
-    img: "/img3.jpg",
+    img: "/img3.png",
   },
   {
     name: "Postman",
     desc: "Testing APIs and backend workflows.",
-    img: "/img1.jpg",
+    img: "/img1.png",
   },
   {
     name: "Chrome DevTools",
     desc: "Debugging and performance tuning.",
-    img: "/img2.jpg",
+    img: "/img2.png",
   },
   {
     name: "Notion",
     desc: "Organizing ideas, notes, and workflows.",
-    img: "/img3.jpg",
+    img: "/img3.png",
   },
 ];
 

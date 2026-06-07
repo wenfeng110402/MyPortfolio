@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
-const images = ["/img1.JPG", "/img2.jpeg", "/img3.jpeg"];
+const images = ["/img1.png", "/img2.png", "/img3.png"];
 
 export default function HeroSection() {
   const [index, setIndex] = useState(0);
