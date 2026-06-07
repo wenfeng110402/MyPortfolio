@@ -1,27 +1,26 @@
-{
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "radix-nova",
-  "rsc": true,
-  "tsx": true,
-  "tailwind": {
-    "config": "",
-    "css": "app/globals.css",
-    "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
-  },
-  "iconLibrary": "lucide",
-  "rtl": false,
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
-  },
-  "menuColor": "default",
-  "menuAccent": "subtle",
-  "registries": {
-    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
-  }
-}
+## Error Type
+Runtime TypeError
+
+## Error Message
+t('projects.items').map is not a function. (In 't('projects.items').map((project, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ProjectCard, {
+                                project: project,
+                                index: index
+                            }, project.name, false, {
+                                fileName: "[project]/app/components/PortfolioSite.tsx",
+                                lineNumber: 163,
+                                columnNumber: 13
+                            }, this))', 't('projects.items').map' is undefined)
+
+
+    at PortfolioSite (app/components/PortfolioSite.tsx:162:46)
+
+## Code Frame
+  160 |
+  161 |         <div className="grid gap-6 md:grid-cols-2">
+> 162 |           {(t('projects.items') as any[]).map((project, index) => (
+      |                                              ^
+  163 |             <ProjectCard
+  164 |               key={project.name}
+  165 |               project={project}
+
+Next.js version: 16.2.1 (Turbopack)

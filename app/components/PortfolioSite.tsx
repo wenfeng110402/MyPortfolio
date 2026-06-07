@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useLanguage } from "../hooks/useLanguage";
+import { useState } from "react";
 import Navbar from "./Navbar";
 
 type Lang = "zh" | "en";
@@ -12,7 +12,6 @@ const translations = {
       home: "首页",
       about: "关于",
       projects: "项目",
-      stack: "技术栈",
       github: "GitHub",
     },
     hero: {
@@ -36,30 +35,30 @@ const translations = {
         {
           name: "AppleMusic-Downloader",
           description:
-            "一个功能完整的图形化 Apple Music 下载工具，已获得 252+ 星标，被 GitHub Education Newsletter 推荐，帮助数万用户下载高保真音乐。",
-          tags: ["Python", "GUI", "开源"],
+            "开源音乐下载工具，累计服务数万用户，曾获 GitHub Education Newsletter 收录。",
+          tags: ["Python", "CLI", "开源"],
           href: "https://github.com/wenfeng110402/AppleMusic-Downloader",
         },
         {
           name: "HackPod",
           description:
-            "设计一个轻量化的 ESP32 MP3 播放器，仿 iPod shuffle 交互。从 PCB 设计、固件开发到外壳设计全程自主完成，展示完整的硬件开发流程。",
-          tags: ["C++", "嵌入式", "硬件"],
+            "从零到一设计的独立 MP3 播放器，独立完成 PCB、固件与 3D 外壳，获 Hack Club Grant。",
+          tags: ["硬件", "PCB", "嵌入式", "3D建模"],
           href: "https://github.com/wenfeng110402/HackPod",
         },
         {
-          name: "Hack-Club-App",
+          name: "YOLOv8 智能识别系统",
           description:
-            "用 SwiftUI 打造的 Hack Club 社区应用，为全球青少年开发者提供一个高效的活动管理和协作平台，支持实时通知和社区互动。",
-          tags: ["SwiftUI", "iOS", "社区"],
-          href: "https://github.com/wenfeng110402/Hack-Club-App",
+            "基于 YOLOv8 的实时物体识别与计数系统，针对边缘设备优化；获佛山市南海区科创大赛一等奖（街道第一名）、市赛二等奖。",
+          tags: ["Python", "计算机视觉", "边缘计算"],
+          href: "https://github.com/wenfeng110402",
         },
         {
-          name: "Authenticator",
+          name: "Hack Club 生态工具",
           description:
-            "为 Hack Club 社区开发的双因素认证工具，支持 iOS App 和 CLI 版本。实现密钥管理、TOTP 生成和安全验证，在 Flavortown 活动中担任 Chef 主导产品迭代。",
-          tags: ["SwiftUI", "Python", "安全"],
-          href: "https://github.com/wenfeng110402/Authenticator",
+            "为 Hack Club 社区开发的 iOS App 与 CLI 双因素认证工具 Authenticator；在 Flavortown 活动中担任 Chef 主导多个项目迭代。",
+          tags: ["SwiftUI", "iOS", "CLI", "安全"],
+          href: "https://github.com/wenfeng110402",
         },
       ],
     },
@@ -67,23 +66,12 @@ const translations = {
       title: "Cret · 全栈开发者 / 开源创作者",
       note: "Hack Club 成员 · 2027 Apple Swift Student Challenge 冲刺中",
     },
-    stack: {
-      title: "技术栈",
-      label: "精通的技术",
-      categories: [
-        { name: "语言", skills: ["Python", "Swift", "TypeScript", "C++", "JavaScript"] },
-        { name: "前端", skills: ["React", "Next.js", "SwiftUI", "Tailwind CSS"] },
-        { name: "后端", skills: ["Node.js", "CLI 工具", "REST API"] },
-        { name: "其他", skills: ["Git", "硬件编程", "Linux", "Docker"] },
-      ],
-    },
   },
   en: {
     nav: {
       home: "Home",
       about: "About",
       projects: "Projects",
-      stack: "Stack",
       github: "GitHub",
     },
     hero: {
@@ -107,30 +95,30 @@ const translations = {
         {
           name: "AppleMusic-Downloader",
           description:
-            "A full-featured GUI for downloading high-fidelity music from Apple Music. 252+ stars on GitHub, featured in GitHub Education Newsletter. Serves thousands of users daily.",
-          tags: ["Python", "GUI", "Open Source"],
+            "Open-source music downloader serving tens of thousands of users. Featured on GitHub Education Newsletter.",
+          tags: ["Python", "CLI", "Open Source"],
           href: "https://github.com/wenfeng110402/AppleMusic-Downloader",
         },
         {
           name: "HackPod",
           description:
-            "A lightweight ESP32-based portable MP3 player inspired by iPod shuffle. Self-designed PCB, firmware, and enclosure from scratch—complete hardware development journey.",
-          tags: ["C++", "Embedded", "Hardware"],
+            "Independent MP3 player built from scratch. Designed PCB, firmware, and 3D enclosure. Received Hack Club Grant.",
+          tags: ["Hardware", "PCB", "Embedded", "3D Modeling"],
           href: "https://github.com/wenfeng110402/HackPod",
         },
         {
-          name: "Hack-Club-App",
+          name: "YOLOv8 Smart Recognition",
           description:
-            "Built with SwiftUI, a community app for Hack Club connecting global teen developers. Real-time notifications, event management, and collaborative features at scale.",
-          tags: ["SwiftUI", "iOS", "Community"],
-          href: "https://github.com/wenfeng110402/Hack-Club-App",
+            "Real-time object detection and counting system optimized for edge devices. Won 1st Prize in District Science Fair and 2nd Prize at city level.",
+          tags: ["Python", "Computer Vision", "Edge Computing"],
+          href: "https://github.com/wenfeng110402",
         },
         {
-          name: "Authenticator",
+          name: "Hack Club Ecosystem",
           description:
-            "2FA tool for the Hack Club community with iOS app and CLI. Secure key management, TOTP generation, and multi-platform support. Led product iterations as Chef during Flavortown.",
-          tags: ["SwiftUI", "Python", "Security"],
-          href: "https://github.com/wenfeng110402/Authenticator",
+            "iOS app and CLI 2FA tool Authenticator for the Hack Club community. Served as Chef during Flavortown to drive multiple project iterations.",
+          tags: ["SwiftUI", "iOS", "CLI", "Security"],
+          href: "https://github.com/wenfeng110402",
         },
       ],
     },
@@ -138,37 +126,21 @@ const translations = {
       title: "Cret · Full Stack Developer / Open Source Creator",
       note: "Hack Club member · chasing the 2027 Apple Swift Student Challenge",
     },
-    stack: {
-      title: "Tech Stack",
-      label: "Skills & expertise",
-      categories: [
-        { name: "Languages", skills: ["Python", "Swift", "TypeScript", "C++", "JavaScript"] },
-        { name: "Frontend", skills: ["React", "Next.js", "SwiftUI", "Tailwind CSS"] },
-        { name: "Backend", skills: ["Node.js", "CLI Tools", "REST API"] },
-        { name: "Other", skills: ["Git", "Hardware Programming", "Linux", "Docker"] },
-      ],
-    },
   },
 } as const;
-
-type Project = {
-  name: string;
-  description: string;
-  tags: readonly string[];
-  href: string;
-};
 
 function ProjectCard({
   project,
   index,
-  lang,
 }: {
-  project: Project;
+  project: {
+    name: string;
+    description: string;
+    tags: readonly string[];
+    href: string;
+  };
   index: number;
-  lang: Lang;
 }) {
-  const content = translations[lang];
-
   return (
     <motion.a
       href={project.href}
@@ -188,9 +160,6 @@ function ProjectCard({
               {project.name}
             </h3>
           </div>
-          <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-gray-400">
-            {content.projects.label}
-          </span>
         </div>
 
         <div className="h-24 rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent" />
@@ -213,8 +182,10 @@ function ProjectCard({
 }
 
 export default function PortfolioSite() {
-  const { lang } = useLanguage();
+  const [lang, setLang] = useState<Lang>("zh");
   const content = translations[lang];
+
+  const toggleLang = () => setLang((current) => (current === "zh" ? "en" : "zh"));
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
@@ -321,45 +292,7 @@ export default function PortfolioSite() {
               key={project.name}
               project={project}
               index={index}
-              lang={lang}
             />
-          ))}
-        </div>
-      </section>
-
-      <section id="stack" className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-10 flex flex-col gap-3">
-          <p className="text-xs uppercase tracking-[0.35em] text-gray-500">
-            {content.stack.label}
-          </p>
-          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            {content.stack.title}
-          </h2>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {content.stack.categories.map((category) => (
-            <motion.div
-              key={category.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl"
-            >
-              <h3 className="text-lg font-semibold text-white">
-                {category.name}
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-sm text-gray-300 hover:border-white/20 hover:bg-white/10 transition"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
           ))}
         </div>
       </section>

@@ -52,14 +52,59 @@ export const translations = {
     projects: {
       label: "SELECTED WORKS",
       title: "Featured Projects",
+      intro: "A collection of my recent work spanning open-source tools, hardware projects, and web applications.",
       viewAll: "View All Projects",
+      items: [
+        {
+          name: "AppleMusic Downloader",
+          href: "https://github.com/wenfeng110402/AppleMusic-Downloader",
+          description: "A graphical Apple Music downloader built with Python. Features high-quality audio download (AAC 256kbps), HD music video support (up to 1080p), batch download for artist works, and highly customizable configuration options.",
+          tags: ["Python", "PyQt", "FFmpeg", "GitHub Actions"],
+        },
+        {
+          name: "HackPod",
+          href: "https://github.com/wenfeng110402/HackPod",
+          description: "A portable MP3 player inspired by iPod shuffle, built using ESP32 microcontroller. Plays MP3 songs from micro SD card with physical buttons for control. Features I2S audio output, LED status indicator, and battery monitoring.",
+          tags: ["C++", "ESP32", "Arduino", "PCB Design"],
+        },
+        {
+          name: "Authenticator",
+          href: "https://github.com/wenfeng110402/Authenticator",
+          description: "A polished CLI tool for managing and viewing TOTP codes. Features a modern Textual-based dashboard UI, secret management, live continuously updating TOTP codes display, and multiple export formats.",
+          tags: ["Python", "Textual TUI", "TOTP", "Security"],
+        },
+        {
+          name: "Portfolio Website",
+          href: "https://github.com/wenfeng110402/My-Portfolio",
+          description: "A modern portfolio website built with Next.js, React, and Tailwind CSS. Features 3D animations, bilingual support, and responsive design.",
+          tags: ["Next.js", "React", "Tailwind", "Three.js"],
+        },
+      ],
     },
     
-    // Skills Section
-    skills: {
+    // Stack Section
+    stack: {
       label: "TECH STACK",
       title: "Skills & Technologies",
       description: "Technologies I work with daily to bring ideas to life.",
+      categories: [
+        {
+          name: "Frontend Development",
+          skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"],
+        },
+        {
+          name: "Backend Development",
+          skills: ["Node.js", "Python", "MongoDB", "Mongoose", "REST API", "GraphQL"],
+        },
+        {
+          name: "Tools & Platforms",
+          skills: ["Git", "GitHub", "Vercel", "Docker", "Linux", "VS Code"],
+        },
+        {
+          name: "Hardware & IoT",
+          skills: ["ESP32", "Arduino", "C++", "PCB Design", "3D Modeling", "I2S Audio"],
+        },
+      ],
     },
     
     // Behind Section
@@ -138,14 +183,59 @@ export const translations = {
     projects: {
       label: "精选作品",
       title: "重点项目",
+      intro: "我最近的作品集，涵盖开源工具、硬件项目和 Web 应用。",
       viewAll: "查看所有项目",
+      items: [
+        {
+          name: "AppleMusic Downloader",
+          href: "https://github.com/wenfeng110402/AppleMusic-Downloader",
+          description: "使用 Python 构建的图形化 Apple Music 下载器。支持高质量音频下载（AAC 256kbps）、高清音乐视频支持（最高 1080p）、批量下载艺术家作品和高度可定制的配置选项。",
+          tags: ["Python", "PyQt", "FFmpeg", "GitHub Actions"],
+        },
+        {
+          name: "HackPod",
+          href: "https://github.com/wenfeng110402/HackPod",
+          description: "受 iPod shuffle 启发的便携式 MP3 播放器，使用 ESP32 微控制器构建。从 micro SD 卡播放 MP3 歌曲，通过物理按钮控制。具有 I2S 音频输出、LED 状态指示器和电池监控功能。",
+          tags: ["C++", "ESP32", "Arduino", "PCB Design"],
+        },
+        {
+          name: "Authenticator",
+          href: "https://github.com/wenfeng110402/Authenticator",
+          description: "一个精致的 CLI 工具，用于管理和查看 TOTP 代码。具有基于 Textual 的现代仪表板 UI、密钥管理、实时持续更新的 TOTP 代码显示和多种导出格式。",
+          tags: ["Python", "Textual TUI", "TOTP", "Security"],
+        },
+        {
+          name: "Portfolio Website",
+          href: "https://github.com/wenfeng110402/My-Portfolio",
+          description: "使用 Next.js、React 和 Tailwind CSS 构建的现代作品集网站。具有 3D 动画、双语支持和响应式设计。",
+          tags: ["Next.js", "React", "Tailwind", "Three.js"],
+        },
+      ],
     },
     
-    // Skills Section
-    skills: {
+    // Stack Section
+    stack: {
       label: "技术栈",
       title: "技能与技术",
       description: "我每天用来实现想法的技术。",
+      categories: [
+        {
+          name: "前端开发",
+          skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"],
+        },
+        {
+          name: "后端开发",
+          skills: ["Node.js", "Python", "MongoDB", "Mongoose", "REST API", "GraphQL"],
+        },
+        {
+          name: "工具与平台",
+          skills: ["Git", "GitHub", "Vercel", "Docker", "Linux", "VS Code"],
+        },
+        {
+          name: "硬件与物联网",
+          skills: ["ESP32", "Arduino", "C++", "PCB Design", "3D Modeling", "I2S Audio"],
+        },
+      ],
     },
     
     // Behind Section

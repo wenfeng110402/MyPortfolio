@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Navbar from "../components/Navbar";
 import UsesSoftware from "../components/UsesSoftware";
 import UsesIntegrations from "../components/UsesIntegrations";
 import BehindSection from "../components/BehindSection";
@@ -6,6 +8,7 @@ import HeroSection2 from "../components/HeroSection2";
 export default function UsesPage() {
   return (
     <main className="bg-black text-white min-h-screen">
+      <Navbar />
       <section className="px-6 md:px-20 pt-32 pb-20 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <p className="text-xs tracking-[0.3em] text-gray-500 mb-6">

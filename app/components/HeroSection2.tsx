@@ -107,14 +107,14 @@ export default function Hero() {
           </div>
 
           <div>
-            <h3 className="text-white/50 mb-4">Legal</h3>
+            <h3 className="text-white/50 mb-4">{t("nav.legal")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/terms"
                   className="block text-white text-[15px] font-medium tracking-tight hover:text-white/70 transition"
                 >
-                  Terms & Conditions
+                  {t("nav.terms")}
                 </Link>
               </li>
             </ul>

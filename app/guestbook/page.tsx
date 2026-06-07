@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import Navbar from "../components/Navbar";
 import HeroSection2 from "../components/HeroSection2";
 
 type Entry = {
@@ -42,6 +44,7 @@ export default function GuestbookPage() {
 
   return (
     <div className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
+      <Navbar />
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <p className="text-xs tracking-[0.3em] text-white/50 mb-4">
