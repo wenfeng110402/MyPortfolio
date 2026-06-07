@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useLanguage } from "../hooks/useLanguage";
 import Navbar from "./Navbar";
 
 type Lang = "zh" | "en";
@@ -213,10 +213,8 @@ function ProjectCard({
 }
 
 export default function PortfolioSite() {
-  const [lang, setLang] = useState<Lang>("zh");
+  const { lang } = useLanguage();
   const content = translations[lang];
-
-  const toggleLang = () => setLang((current) => (current === "zh" ? "en" : "zh"));
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
@@ -364,30 +362,6 @@ export default function PortfolioSite() {
             </motion.div>
           ))}
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-10">
-          <p className="text-xs uppercase tracking-[0.35em] text-gray-500">
-            {lang === "zh" ? "GitHub 贡献" : "GitHub Activity"}
-          </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
-            {lang === "zh" ? "热力图" : "Contribution"}
-          </h2>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl"
-        >
-          <img
-            src="https://ghchart.rstatello.com/wenfeng110402"
-            alt="GitHub Contribution Chart"
-            className="w-full"
-          />
-        </motion.div>
       </section>
 
       <footer className="mx-auto max-w-6xl px-6 py-16">
